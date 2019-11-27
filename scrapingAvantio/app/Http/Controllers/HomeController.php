@@ -49,6 +49,7 @@ class HomeController extends Controller
             ]
         ];
         
+        //Gets the 5 first posts of each newspapper and adds all the new Feeds into the database
         $articulosElPais = scraping($paramsElPais['web'], $paramsElPais['searchParams'], 5);
         $articulosElMundo = scraping($paramsElMundo['web'], $paramsElMundo['searchParams'], 5);
 

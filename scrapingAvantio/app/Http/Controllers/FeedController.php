@@ -15,6 +15,7 @@ class FeedController extends Controller
      * @return App\Feed     
      * */
   
+     //Creates a new Feed
   public static function create(array $data)
   {
     return \App\Feed::create([
@@ -26,12 +27,13 @@ class FeedController extends Controller
     ]);
   }
 
+  //Deletes a Feed matching the $id from the database
   public static function remove($id){
     $feed = \App\Feed::find($id);
     $feed->delete();
   }
 
-
+//Edits the Feed matching the $id values
   public static function edit($id, array $data){
     $feed = \App\Feed::find($id);
     $feed->title =  $data['title'] ;
@@ -42,6 +44,7 @@ class FeedController extends Controller
     $feed->save();
   }
 
+  //Checks if a Feed with the title matching $title exists
   public static function checkIfExist($title){
     $feed = \App\Feed::where('title', $title);
     if($feed->count() == 0){
