@@ -41,4 +41,13 @@ class FeedController extends Controller
     $feed->publisher =  $data['publisher'] ;
     $feed->save();
   }
+
+  public static function checkIfExist($title){
+    $feed = \App\Feed::where('title', $title);
+    if($feed->count() == 0){
+      return false;
+    }
+
+    return true;
+  }
 }

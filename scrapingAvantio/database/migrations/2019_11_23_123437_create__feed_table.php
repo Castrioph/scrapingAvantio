@@ -16,10 +16,10 @@ class CreateFeedTable extends Migration
         Schema::create('Feeds', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title')->unique();
-            $table->string('body');
-            $table->string('image');
-            $table->string('source');
-            $table->string('publisher');
+            $table->string('body')->nullable();
+            $table->string('image')->nullable();
+            $table->string('source')->nullable();
+            $table->string('publisher')->nullable();
             $table->timestamps();
         });
     }
