@@ -30,7 +30,7 @@ class HomeController extends Controller
             'searchParams' => [
                 'article' =>'.ue-c-cover-content',
                 'title' => '.ue-c-cover-content__headline',
-                'body' => '',
+                'body' => '.ue-c-cover-content__standfirst',
                 'image' => '.ue-c-cover-content__image',
                 'image_att' => 'src',
                 'publisher' => '.ue-c-cover-content__byline-name',

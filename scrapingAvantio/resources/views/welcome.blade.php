@@ -99,6 +99,7 @@
         @if (Route::has('login'))
           <div class="links">
               @auth
+                <a href="{{ url('/home') }}">Home</a>
                 <a href="{{ url('/list') }}">Menu</a>
                 <a href="{{ url('/add') }}">Your menu</a>
                 <a href="{{ url('/edit') }}">Customize the menu</a>

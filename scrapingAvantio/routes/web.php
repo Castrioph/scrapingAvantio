@@ -16,3 +16,7 @@ Route::get('/', 'HomeController@welcome');
 Auth::routes();
 
 Route::get('/home', 'HomeController@welcome')->name('home');
+
+Route::get('/list', 'ListController@list')->name('list');
+
+Route::get('/list/{id}','ListController@listId');

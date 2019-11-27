@@ -62,11 +62,30 @@
             margin-bottom: 30px;
         }
 
-        .links__feed{
+        .feeds{
           display: flex;
           justify-content: center;
           align-items: center;
           flex-direction: column;
+        }
+        .feeds img{
+          width: 50%;
+          height: 50%;
+        }
+        .feeds__article{ 
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          background-color: #f1f1f1;
+          border: 1px solid;
+          -webkit-box-shadow: 4px 12px 22px -4px rgba(0,0,0,0.75);
+          -moz-box-shadow: 4px 12px 22px -4px rgba(0,0,0,0.75);
+          box-shadow: 4px 12px 22px -4px rgba(0,0,0,0.75);
+          width: 50%;
+          margin: 20px;
+          padding: 20px;
+          color: black;
         }
     </style>
   </head>
@@ -83,11 +102,17 @@
           <a href="{{ url('/edit') }}">Customize the menu</a>
         </div>    
       </div>
+
     </div>
-    <div class="links__feed">
-           @foreach($feeds as $feed)
-              <p>{{$feed['id']}} <a href="/list/{{$feed['id']}}">{{$feed['title']}}</a></p>
-           @endforeach
-        </div>
+    <div class="feeds">
+    <article class="feeds__article">
+          <h4>{{ $feed['title']}}</h4>
+          <p>{{ $feed['body']}}</p>
+          <img src ="{{ $feed['image']}}">
+          <p>{{ $feed['source']}}</p>
+          <p>{{ $feed['publisher']}}</p>
+        </article>
+    </div>
+       
   </body>
 </html>
