@@ -10,6 +10,8 @@
       <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
       <!-- Styles -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <style>
         html, body {
             background-color: #fff;
@@ -63,6 +65,7 @@
         }
 
         .feeds{
+          margin-top: 20px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -87,6 +90,14 @@
           padding: 20px;
           color: black;
         }
+
+        form{ 
+          width: 50%;
+        }
+
+        .fedTitle{
+          color: red;
+        }
     </style>
   </head>
   <body>
@@ -105,14 +116,34 @@
 
     </div>
     <div class="feeds">
-    <article class="feeds__article">
-          <h4>{{ $feed['title']}}</h4>
-          <p>{{ $feed['body']}}</p>
-          <img src ="{{ $feed['image']}}">
-          <p>{{ $feed['source']}}</p>
-          <p>{{ $feed['publisher']}}</p>
-        </article>
-    </div>
-       
+
+    <h3>Edit the fields of the feed: <span class="feedTitle">{{$feed['title']}}</span></h3>
+    
+    
+    <form method="post" action="/edited/{{$feed['id']}}">
+      @csrf
+      <div class="form-group ">
+        <label for="title">Title</label>
+        <input name="title" class="form-control" id="titleFeed"  placeholder="{{$feed['title']}}" required>
+      </div>
+      <div class="form-group ">
+        <label for="title">Body</label>
+        <input name="body" class="form-control" id="titleFeed"  placeholder="{{$feed['body']}}" required>
+      </div>
+      <div class="form-group ">
+        <label for="title">Image</label>
+        <input name="image" class="form-control" id="titleFeed"  placeholder="{{$feed['image']}}" required>
+      </div>
+      <div class="form-group ">
+        <label for="title">Source</label>
+        <input name="source" class="form-control" id="titleFeed"  placeholder="{{$feed['source']}}" required>
+      </div>
+      <div class="form-group ">
+        <label for="title">Publisher</label>
+        <input name="publisher" class="form-control" id="titleFeed"  placeholder="{{$feed['publisher']}}" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
   </body>
 </html>

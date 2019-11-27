@@ -62,57 +62,47 @@
             margin-bottom: 30px;
         }
 
-        .feeds{
+        .links__feed{
           display: flex;
           justify-content: center;
           align-items: center;
           flex-direction: column;
+          height: 70vh;
+          overflow: auto;
+          margin-top: 5vh;
         }
-        .feeds img{
-          width: 50%;
-          height: 50%;
-        }
-        .feeds__article{ 
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          background-color: #f1f1f1;
-          border: 1px solid;
-          -webkit-box-shadow: 4px 12px 22px -4px rgba(0,0,0,0.75);
-          -moz-box-shadow: 4px 12px 22px -4px rgba(0,0,0,0.75);
-          box-shadow: 4px 12px 22px -4px rgba(0,0,0,0.75);
-          width: 50%;
-          margin: 20px;
-          padding: 20px;
-          color: black;
-        }
+
     </style>
   </head>
   <body>
     <div class="flex-center position-ref">
       <div class="content">
         <div class="title m-b-md">
-           List the menu!
+            Welcome to dailyTrends!
         </div>
-        <div class="links">
-          <a href="{{ url('/home') }}">Home</a>
-          <a href="{{ url('/list') }}">Menu</a>
-          <a href="{{ url('/add') }}">Your menu</a>
-          <a href="{{ url('/edit') }}">Customize the menu</a>
-        </div>    
-      </div>
+        @if (Route::has('login'))
+          <div class="links">
+              @auth
+                <a href="{{ url('/home') }}">Home</a>
+                <a href="{{ url('/list') }}">Menu</a>
+                <a href="{{ url('/add') }}">Your menu</a>
+                <a href="{{ url('/edit') }}">Customize the menu</a>
 
+              @else
+                  <a href="{{ route('login') }}">Login</a>
+                  @if (Route::has('register'))
+                      <a href="{{ route('register') }}">Register</a>
+                  @endif
+              @endauth
+          </div>
+          @endif
+      </div>
     </div>
-    <div class="feeds">
-    <article class="feeds__article">
-          <h4>{{ $feed['title']}}</h4>
-          <p>{{ $feed['body']}}</p>
-          <img src ="{{ $feed['image']}}">
-          <p>{{ $feed['source']}}</p>
-          <p>{{ $feed['publisher']}}</p>
-        </article>
-    </div>
-       
+    <h3 class="flex-center">Click on a link to edit the Feed</h3>
+    <div class="links__feed">
+           @foreach($feeds as $feed)
+              <p>{{$feed['id']}} <a href="/edit/{{$feed['id']}}">{{$feed['title']}}</a></p>
+           @endforeach
+        </div>
   </body>
 </html>

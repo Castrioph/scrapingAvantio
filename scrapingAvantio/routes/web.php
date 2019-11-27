@@ -20,3 +20,10 @@ Route::get('/home', 'HomeController@welcome')->name('home');
 Route::get('/list', 'ListController@list')->name('list');
 
 Route::get('/list/{id}','ListController@listId');
+Route::get('/list?id={id}','ListController@listId');
+
+Route::get('/edit', 'EditController@edit')->name('edit');
+
+Route::get('/edit/{id}','EditController@editId');
+
+Route::post('edited/{id}', 'EditController@editFeed');

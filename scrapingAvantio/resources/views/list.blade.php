@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <title>Feed Me!</title>
+      <title>dailyTrends!</title>
 
       <!-- Fonts -->
       <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -67,6 +67,9 @@
           justify-content: center;
           align-items: center;
           flex-direction: column;
+          height: 70vh;
+          overflow: auto;
+          margin-top: 5vh;
         }
     </style>
   </head>
@@ -84,6 +87,7 @@
         </div>    
       </div>
     </div>
+    <h3 class="flex-center">Click on a link to visit the Feed</h3>
     <div class="links__feed">
            @foreach($feeds as $feed)
               <p>{{$feed['id']}} <a href="/list/{{$feed['id']}}">{{$feed['title']}}</a></p>
