@@ -29,5 +29,10 @@ class EditController extends Controller
         FeedController::edit($id,$editValues);
         return redirect()->route('list');
     }
+
+    public function deleteFeed($id){
+        FeedController::remove($id);
+        return redirect()->route('list');
+    }
 }
 

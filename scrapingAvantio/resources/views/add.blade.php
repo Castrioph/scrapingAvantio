@@ -117,33 +117,32 @@
     </div>
     <div class="feeds">
 
-    <h3>Edit the fields of the feed: <span class="feedTitle">{{$feed['title']}}</span></h3>
+    <h3>Add a new Feed</h3>
     
     
-    <form method="post" action="/edited/{{$feed['id']}}">
+    <form method="post" action="/add">
       @csrf
       <div class="form-group ">
         <label for="title">Title</label>
-        <input name="title" class="form-control" id="titleFeed"  placeholder="{{$feed['title']}}" required>
+        <input name="title" class="form-control" id="titleFeed"  placeholder="Enter title here" required>
       </div>
       <div class="form-group ">
         <label for="title">Body</label>
-        <input name="body" class="form-control" id="titleFeed"  placeholder="{{$feed['body']}}" required>
+        <input name="body" class="form-control" id="titleFeed"  placeholder="Enter body here" required>
       </div>
       <div class="form-group ">
         <label for="title">Image</label>
-        <input name="image" class="form-control" id="titleFeed"  placeholder="{{$feed['image']}}" required>
+        <input name="image" class="form-control" id="titleFeed"  placeholder="Enter image heree" required>
       </div>
       <div class="form-group ">
         <label for="title">Source</label>
-        <input name="source" class="form-control" id="titleFeed"  placeholder="{{$feed['source']}}" required>
+        <input name="source" class="form-control" id="titleFeed"  placeholder="Enter source here" required>
       </div>
       <div class="form-group ">
         <label for="title">Publisher</label>
-        <input name="publisher" class="form-control" id="titleFeed"  placeholder="{{$feed['publisher']}}" required>
+        <input name="publisher" class="form-control" id="titleFeed"  placeholder="Enter publisher here" required>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
-      <a href="/delete/{{$feed['id']}}">Delete</a>
     </form>
   </div>
   </body>
