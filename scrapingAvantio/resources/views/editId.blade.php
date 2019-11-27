@@ -111,6 +111,7 @@
           <a href="{{ url('/list') }}">Menu</a>
           <a href="{{ url('/add') }}">Your menu</a>
           <a href="{{ url('/edit') }}">Customize the menu</a>
+          <a href="{{ url('/logout') }}">Logout</a>   
         </div>    
       </div>
 
